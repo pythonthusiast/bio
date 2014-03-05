@@ -1,0 +1,29 @@
+{% extends "base-layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+        <h1>Welcome!</h1>
+        <p>Have you ever wondering a simple service to let you show off your product portofolio quickly? We have just the right service for you.</p>
+        <p><a class="btn btn-primary btn-lg" href="{{ url_for('signup') }}">Signup now!</a></p>
+</div>
+
+<div class="row">
+        <div class="col-lg-4">
+          <h2>Employer benefit</h2>
+          <p>What you really want is a quick look of your next candidate employee skillset. You don't want to read tedious Curriculum Vitae sent to you. We know just how to solve that problem!</p>
+          <p><a class="btn btn-default" href="#">View details </a></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Standout your portofolio!</h2>
+          <p>We know you are a highly skilled IT worker. But with all that skillsets, how do you make sure your potential employer know what you really capable of? We make it easier for you! </p>
+          <p><a class="btn btn-default" href="#">View details </a></p>
+       </div>
+        <div class="col-lg-4">
+          <h2>Simply share</h2>
+          <p>You can have your own name here! This tremendiously make you easier in sharing your portofolio. Better than ever, you can also easily share your awesome biography to any social media service!</p>
+          <p><a class="btn btn-default" href="#">View details </a></p>
+        </div>
+      </div>
+
+{% endblock %}

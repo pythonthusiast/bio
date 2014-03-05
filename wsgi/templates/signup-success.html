@@ -1,0 +1,23 @@
+{% extends "base-layout.html" %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6 well" style="background-color: rgb(255,255,255);">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="alert alert-success"><strong>Congratulations!</strong><p> You've been signed up as one of our valuable Autobiography publisher. Click Sign In below to began completing your Biography page.</p> </div>
+                    <p><a class="btn btn-lg btn-primary btn-success"  href="{{ url_for('signin') }}">Sign In</a></p>
+                </div> 
+            </div>
+        </div><!--/container-->
+    </div>                   
+    <div class="col-sm-3">        
+    </div>
+</div>
+
+{% endblock %}
