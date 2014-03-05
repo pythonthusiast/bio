@@ -1,0 +1,50 @@
+{% extends "base-layout.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-8 well" style="background-color: rgb(255,255,255);">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-8">
+                    <form class="form" action="{{url_for('signin')}}" method="POST" role="form">
+                           {{ signinpage_form.hidden_tag() }}
+                        <div class="heading">
+                            <h4 class="form-heading">Sign In</h4>
+                        </div>
+ 
+                        <div class="form-group {% if signinpage_form.username.errors %} has-error {% endif %}">
+                            {{signinpage_form.username.label}}
+                            {{signinpage_form.username(placeholder="E.g. ashwinhegde", class="form-control")}} 
+                            <p class="help-block">{{ signinpage_form.username.errors[0] }}</p>
+                        </div>
+
+                        <div class="form-group {% if signinpage_form.password.errors %} has-error {% endif %}">
+                            {{signinpage_form.password.label}}
+                            {{ signinpage_form.password(placeholder="Min. 6 Characters", class="form-control") }}
+                            <p class="help-block">{{ signinpage_form.password.errors[0] }}</p>
+                        </div>
+                        <div class="checkbox">
+                            {{ signinpage_form.remember_me }} 
+                            {{ signinpage_form.remember_me.label }}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success">Sign In</button>
+                    </form>
+                </div>
+                
+                <div class="col-sm-2">
+                </div>
+            </div>
+        </div><!--/container-->
+    </div>                   
+    <div class="col-sm-2">
+    </div>
+</div>
+
+{% endblock %}

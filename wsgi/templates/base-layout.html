@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% if user is defined %} {{ user.tagline }} {% endif %}">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/static/assets/ico/favicon.png">
+
+    <title>{{ page_title }}</title>
+    {% block header %}
+    {% endblock %}
+    <!-- Bootstrap core CSS -->
+    <link href="/static/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/themes/water/starter-template.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="/static/bootstrap-tagsinput.css" rel="stylesheet">
+  </head>
+
+  <body>
+      <!--
+      <style type="text/css">
+          .navbar{
+              background-color:#2e2e2e;
+          }
+      </style>
+-->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header"><a class="navbar-brand" href="/">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-bold">iography</span></a>            
+        </div>
+        <div class="collapse navbar-collapse">
+            {% if session['signed'] %}
+            <ul class="nav navbar-nav navbar-right" >
+                <li class="dropdown">                    
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="glyphicon glyphicon-user"></span>
+                        Signed in as {{ session['username'] }} <b class="caret"></b>
+                    </a>
+                    
+                    <ul class="dropdown-menu">
+                        <li><a href="/{{session['username']}}">Your Bio Page</a></li>
+                        <li><a href="{{ url_for('profile') }}">Settings..</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ url_for('signout') }}">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {% else %}            
+            
+            {% if not signinpage_form %}
+
+            <form class="navbar-form navbar-right" action="{{ url_for('signin')}}" method="POST">
+              {{ signin_form.hidden_tag() }}                
+                <div class="form-group">
+                  {{ signin_form.username(class="form-control", placeholder="Username") }}
+                </div>
+                <div class="form-group">
+                  {{ signin_form.password(class="form-control", placeholder="Password") }}
+                </div>
+                <div class="checkbox">
+                    {{ signin_form.remember_me }} 
+                    {{ signin_form.remember_me.label(style="color:rgb(240,240,240);") }}
+                </div>                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Sign In</button>
+                </div>
+            </form>
+            
+            {% endif %}
+
+            {% endif %}
+<a href="https://github.com/CoderDojoIndonesia/bio"><img style="position: absolute; top: 0; left: 0; border: 0;" src="/static/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
+        </div><!--/.nav-collapse -->
+    </div>
+<div align="center"><span class="glyphicon glyphicon-hand-right"></span>&nbsp;Follow a <a href="http://tinyurl.com/pythonthusiast-bio-app-dev" target="_blank">step-by-step guide</a> on how to develop this Biography application on <a href="http://www.openshift.com">Openshift</a></div>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div><!-- /.container -->
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/assets/js/jquery.js"></script>
+    <script src="/static/dist/js/bootstrap.min.js"></script>
+    <script src="/static/bootbox.min.js"></script>
+    <script src="/static/bootstrap-tagsinput.js"></script>
+    {% block footer %}
+    {% endblock %}
+  </body>
+</html>
