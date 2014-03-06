@@ -286,7 +286,6 @@ def portfolio_delete(id):
 def dbinit():
     db.drop_all()
     db.create_all()
-
     user = Users(username='ekowibowo', fullname='Eko Suprapto Wibowo', password=hash_string('rahasia'),
                          email='swdev.bali@gmail.com', 
                          tagline='A cool coder and an even cooler Capoeirista', 
