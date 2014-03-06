@@ -284,8 +284,9 @@ def portfolio_delete(id):
 
 
 def dbinit():
+    db.drop_all()
     db.create_all()
-'''
+
     user = Users(username='ekowibowo', fullname='Eko Suprapto Wibowo', password=hash_string('rahasia'),
                          email='swdev.bali@gmail.com', 
                          tagline='A cool coder and an even cooler Capoeirista', 
@@ -303,7 +304,7 @@ def dbinit():
                                     tags='extjs,python,openshift,flask,sqlalchemy,postgresql,bootstrap3'))
     db.session.add(user)
     db.session.commit()
-'''
+
 @application.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
