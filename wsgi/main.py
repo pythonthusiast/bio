@@ -16,11 +16,11 @@ from sqlalchemy.ext import serializer
 
 application = Flask(__name__)
 
-application.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('OPENSHIFT_POSTGRESQL_DB_URL') if os.environ.get('OPENSHIFT_POSTGRESQL_DB_URL') else 'postgresql://localhost:5432/bio'
+application.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('OPENSHIFT_POSTGRESQL_DB_URL') if os.environ.get('OPENSHIFT_POSTGRESQL_DB_URL') else os.environ.get('LOCAL_DB_URL')
 application.config['CSRF_ENABLED'] = True
 application.config['SECRET_KEY'] = 'rahasiabesar'
 
-db = SQLAlchemy(application) 
+db = SQLAlchemy(application)
 
 login_manager = LoginManager()
 login_manager.init_app(application)
@@ -42,7 +42,7 @@ class Users(db.Model, object):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(60), unique=True)
     fullname = db.Column(db.String(101))
-    password = db.Column(db.String)
+    password = db.Column(db.String(255))
     email = db.Column(db.String(100), unique=True)
     currently_live_in = db.Column(db.String(300))
 
@@ -52,7 +52,7 @@ class Users(db.Model, object):
     avatar = db.Column(db.String(255))
 
     active = db.Column(db.Boolean)
-    
+
     portfolio = db.relationship('Portfolio')
 
 
@@ -61,7 +61,7 @@ class Users(db.Model, object):
 
     def is_active(self):
         return self.active
-    
+
     def is_anonymous(self):
         return False
 
@@ -96,7 +96,7 @@ class SignupForm(Form):
             ])
     password = PasswordField('Pick a secure password', validators=[
             Required(),
-            Length(min=6, message=(u'Please give a longer password'))           
+            Length(min=6, message=(u'Please give a longer password'))
             ])
     username = TextField('Choose your username', validators=[Required()])
     agree = BooleanField('I agree all your <a href="/static/tos.html">Terms of Services</a>', validators=[Required(u'You must accept our Terms of Service')])
@@ -130,7 +130,7 @@ class PortoForm(Form):
 def index(username = None):
     if username is None:
         return render_template('index.html', page_title = 'Biography just for you!', signin_form = SigninForm())
-    
+
     user = Users.query.filter_by(username=username).first()
     if user is None:
         user = Users()
@@ -150,7 +150,7 @@ def signup():
         if form.validate():
             user = Users()
             form.populate_obj(user)
-            
+
             user_exist = Users.query.filter_by(username=form.username.data).first()
             email_exist = Users.query.filter_by(email=form.email.data).first()
 
@@ -161,11 +161,11 @@ def signup():
                 form.email.errors.append('Email already use')
 
             if user_exist or email_exist:
-                return render_template('signup.html', 
+                return render_template('signup.html',
                                        signin_form = SigninForm(),
                                        form = form,
                                        page_title = 'Signup to Bio Application')
-            
+
             else:
                 user.firstname = "Your fullname"
                 user.password = hash_string(user.password)
@@ -175,18 +175,18 @@ def signup():
 
                 db.session.add(user)
                 db.session.commit()
-                return render_template('signup-success.html', 
+                return render_template('signup-success.html',
                                        user = user,
                                        signin_form = SigninForm(),
                                        page_title = 'Sign Up Success!')
 
         else:
-            return render_template('signup.html', 
-                                   form = form, 
+            return render_template('signup.html',
+                                   form = form,
                                    signin_form = SigninForm(),
                                    page_title = 'Signup to Bio Application')
-    return render_template('signup.html', 
-                           form = SignupForm(), 
+    return render_template('signup.html',
+                           form = SignupForm(),
                            signin_form = SigninForm(),
                            page_title = 'Signup to Bio Application')
 
@@ -195,7 +195,7 @@ def signin():
     if request.method=='POST':
         if current_user is not None and current_user.is_authenticated():
             return redirect(url_for('index'))
-    
+
         form = SigninForm(request.form)
         if form.validate():
             user = Users.query.filter_by(username = form.username.data).first()
@@ -206,21 +206,21 @@ def signin():
                 form.password.errors.append('Passwod did not match')
                 return render_template('signinpage.html',  signinpage_form = form, page_title = 'Sign In to Bio Application')
 
-            login_user(user, remember = form.remember_me.data)            
+            login_user(user, remember = form.remember_me.data)
 
             session['signed'] = True
             session['username']= user.username
 
-            if session.get('next'):                
-                next_page = session.get('next') 
+            if session.get('next'):
+                next_page = session.get('next')
                 session.pop('next')
-                return redirect(next_page) 
+                return redirect(next_page)
             else:
                 return redirect(url_for('index'))
         return render_template('signinpage.html',  signinpage_form = form, page_title = 'Sign In to Bio Application')
     else:
         session['next'] = request.args.get('next')
-        return render_template('signinpage.html', signinpage_form = SigninForm())        
+        return render_template('signinpage.html', signinpage_form = SigninForm())
 
 
 @application.route('/signout')
@@ -251,7 +251,7 @@ def portfolio_add_update():
                 user.portfolio.append(Portfolio(title = form.title.data, description = form.description.data, tags = form.tags.data))
                 print 'id ', form.portfolio_id
                 db.session.commit()
-                result['savedsuccess'] = True 
+                result['savedsuccess'] = True
             else:
                 result['savedsuccess'] = False
         else:
@@ -259,7 +259,7 @@ def portfolio_add_update():
             form.populate_obj(portfolio)
             db.session.commit()
             result['savedsuccess'] = True
-            
+
         return json.dumps(result)
 
     form.errors['iserror'] = True
@@ -272,7 +272,7 @@ def portfolio_get(id):
     portfolio = Portfolio.query.get(id)
     return json.dumps(portfolio._asdict())
 
-@application.route('/portfolio_delete/<id>') 
+@application.route('/portfolio_delete/<id>')
 @login_required
 def portfolio_delete(id):
     portfolio = Portfolio.query.get(id)
@@ -287,19 +287,19 @@ def dbinit():
     db.drop_all()
     db.create_all()
     user = Users(username='ekowibowo', fullname='Eko Suprapto Wibowo', password=hash_string('rahasia'),
-                         email='swdev.bali@gmail.com', 
-                         tagline='A cool coder and an even cooler Capoeirista', 
-                         bio = 'I love Python very much!', 
+                         email='swdev.bali@gmail.com',
+                         tagline='A cool coder and an even cooler Capoeirista',
+                         bio = 'I love Python very much!',
                          avatar = '/static/avatar.png',
                          active = True)
     user.portfolio.append(Portfolio(title = 'FikrPOS',
-                                    description = 'An integrated POS solution using cloud concept', 
+                                    description = 'An integrated POS solution using cloud concept',
                                     tags='python,c#,openshift,flask,sqlalchemy,postgresql,bootstrap3'))
     user.portfolio.append(Portfolio(title = 'Bio Application',
-                                    description = 'An autobiography publisher', 
+                                    description = 'An autobiography publisher',
                                     tags='python,openshift,flask,sqlalchemy,postgresql,bootstrap3'))
     user.portfolio.append(Portfolio(title = 'Project Management',
-                                    description = 'Internal company project management tool', 
+                                    description = 'Internal company project management tool',
                                     tags='extjs,python,openshift,flask,sqlalchemy,postgresql,bootstrap3'))
     db.session.add(user)
     db.session.commit()
@@ -307,7 +307,7 @@ def dbinit():
 @application.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
-    
+
 if __name__ == '__main__':
     dbinit()
     application.run(debug=True, host="0.0.0.0", port=8888)
