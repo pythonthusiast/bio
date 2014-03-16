@@ -303,7 +303,7 @@ def user_edit_tagline():
     user.tagline = request.form["value"]
     result = {}
     db.session.commit()
-    return json.dumps(result) #or, as it is an empty json, you can simply use return "{}"
+    return json.dumps(result)
     
 
 @application.route('/user_edit_biography',methods=['GET', 'POST'])
@@ -312,11 +312,7 @@ def user_edit_biography():
     user = Users.query.get(id)
     user.bio = request.form["value"]
     result = {}
-    try:
-        db.session.commit()
-    except:
-        result['status'] = 'error';    
-    result['status'] = 'success';
+    db.session.commit()
     return json.dumps(result)
 
 def allowed_file(filename):
@@ -329,10 +325,11 @@ def user_upload_avatar():
         id = request.form["avatar_user_id"]
         file = request.files['file']
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
+            user = Users.query.get(id)
+            filename = user.username + "_" + secure_filename(file.filename)
             file.save(os.path.join(application.config['UPLOAD_FOLDER'], filename))
             img = "/static/upload/" + filename
-            user = Users.query.get(id)
+
             user.avatar = img
             db.session.commit()
             return img

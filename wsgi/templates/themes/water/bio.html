@@ -1,5 +1,4 @@
 {% extends "base-layout.html" %}
-
 {% block header %}
 {% if session['signed'] %}
 <link href="/static/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
@@ -36,9 +35,7 @@
                 <img id="avatar" width="300" class="img img-rounded" src="{{ user.avatar }}">
                 <p>{{ user.bio }}</p>
             {% endif %}
-
         </div>
-
     </div>
 
     <div class="col-sm-8">
@@ -273,20 +270,11 @@
             }
         });
 
-        /*$('#avatar').editable({
-            placement: "right",
-            error: function (errors) {
-            }
-        });*/
-
         $('#biography').editable({
             placement:"right",
             error: function (errors) {
             }
         });
-    </script>
-
-    <script>
 
         function uploadAvatar(id)
         {
