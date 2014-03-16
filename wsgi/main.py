@@ -282,24 +282,37 @@ def portfolio_delete(id):
     result['result'] = 'success';
     return json.dumps(result)
 
+@application.route('/user_edit_fullname',methods=['GET', 'POST'])
+def user_edit_fullname():
+    id = request.form["pk"]
+    user = Users.query.get(id)
+    user.fullname = request.form["value"]
+    result = {}
+    db.session.commit()
+    return json.dumps(result) #or, as it is an empty json, you can simply use return "{}"
+
 @application.route('/user_edit_tagline',methods=['GET', 'POST'])
 def user_edit_tagline():
     id = request.form["pk"]
     user = Users.query.get(id)
     user.tagline = request.form["value"]
-    try:
-        db.session.commit()
-    except:
-        return "error"
-    return "okay"
+    result = {}
+    db.session.commit()
+    return json.dumps(result) #or, as it is an empty json, you can simply use return "{}"
+    
 
 @application.route('/user_edit_biography',methods=['GET', 'POST'])
 def user_edit_biography():
     id = request.form["pk"]
     user = Users.query.get(id)
     user.bio = request.form["value"]
-    db.session.commit()
-    return ""
+    result = {}
+    try:
+        db.session.commit()
+    except:
+        result['status'] = 'error';    
+    result['status'] = 'success';
+    return json.dumps(result)
 
 
 def dbinit():

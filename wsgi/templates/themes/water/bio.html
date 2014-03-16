@@ -18,22 +18,24 @@
     }
 </style>
 <div class="page-header">
-    <h1>{{ user.firstname }} {{ user.lastname }}</h1>
+    
     {% if session['signed'] %}
+        <h1><a href="#" id="fullname" data-type="text" data-url="/user_edit_fullname" data-pk="{{user.id}}"  data-title="Change your fullname">{{ user.fullname }}</a></h1>
         <p><strong><a href="#" id="tagline" data-type="text" data-url="/user_edit_tagline" data-pk="{{user.id}}"  data-title="Change your tagline">{{ user.tagline }}</a></strong></p>
     {% else %}
-        <p><strong>{{ user.tagline }}</p>
+        <h1>{{ user.fullname }}</h1>
+        <p><strong>{{ user.tagline }}</strong></p>
     {% endif %}
 </div>
 <div class="row">
     <div class="col-sm-4">
-        <div class="container" align="center">
-          <img class="img img-rounded" src="{{ user.avatar }}">
+        <div class="container" >
             {% if session['signed'] %}
-            <p><strong></strong></p>
-                <p style="text-align:center"><a href="#" id="biography" data-type="text" data-url="/user_edit_biography" data-pk="{{user.id}}"  data-title="Change your short biography">{{ user.bio }}</a></p>
+                <a href="javascript:uploadAvatar();" id="avatar"><img class="img img-rounded" src="{{ user.avatar }}"></a>
+                <p><a href="#" id="biography" data-type="textarea" data-url="/user_edit_biography" data-pk="{{user.id}}"  data-title="Change your short biography">{{ user.bio }}</a></p>
             {% else %}
-                <p style="text-align:center">{{ user.bio }}</p>
+                <img id="avatar" class="img img-rounded" src="{{ user.avatar }}">
+                <p>{{ user.bio }}</p>
             {% endif %}
 
         </div>
@@ -141,9 +143,41 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
         </div>
+        </div>
     </div>
 </div>
 
+<div class="modal fade" id="avatar_form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Upload Avatar</h4>
+      </div>
+      <div class="modal-body">
+        <span class="btn btn-success fileinput-button">
+        <i class="glyphicon glyphicon-plus"></i>
+        <span>Add files...</span>
+        <!-- The file input field used as target for the file upload widget -->
+        <input id="fileupload" type="file" name="files[]" multiple>
+        </span>
+        <br>
+        <br>
+        <!-- The global progress bar -->
+        <div id="progress" class="progress">
+            <div class="progress-bar progress-bar-success"></div>
+        </div>
+        <!-- The container for the uploaded files -->
+        <div id="files" class="files"></div>
+        <br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 
@@ -236,32 +270,37 @@
 {% if session['signed'] %}
     <script src="/static/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
     <script>
+        $('#fullname').editable({
+            placement: "right",
+            error: function (errors) {
+            }
+        });
         $('#tagline').editable({
-            placement:"right",
-            success: function(response, newValue)
-            {
-                if(response.status == 'error') return response.msg; //msg will be shown in editable form
+            placement: "right",            
+            error: function (errors) {                
             }
         });
 
+        /*$('#avatar').editable({
+            placement: "right",
+            error: function (errors) {
+            }
+        });*/
+
         $('#biography').editable({
             placement:"right",
-            success: function(response, newValue)
-            {
-                //Nothing here
-            },
-            error: function(errors)
-            {
-               var msg = '';
-               if(errors && errors.responseText) { //ajax error, errors = xhr object
-                   msg = errors.responseText;
-               } else { //validation error (client-side or server-side)
-                   $.each(errors, function(k, v) { msg += k+": "+v+"<br>"; });
-               }
-               $('#msg').removeClass('alert-success').addClass('alert-error').html(msg).show();
-           }
+            error: function (errors) {
+            }
         });
     </script>
 
+    <script>
+
+        function uploadAvatar()
+        {
+
+            $('#avatar_form').modal();
+        }
+    </script>
 {% endif %}
 {% endblock %}
