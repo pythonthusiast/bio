@@ -1,4 +1,12 @@
 {% extends "base-layout.html" %}
+
+{% block header %}
+{% if session['signed'] %}
+<link href="/static/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+{% endif %}
+{% endblock %}
+
+
 {% block content %}
 
 <style type="text/css">
@@ -11,13 +19,23 @@
 </style>
 <div class="page-header">
     <h1>{{ user.firstname }} {{ user.lastname }}</h1>
-    <p><strong>{{ user.tagline }}</strong></p>
+    {% if session['signed'] %}
+        <p><strong><a href="#" id="tagline" data-type="text" data-url="/user_edit_tagline" data-pk="{{user.id}}"  data-title="Change your tagline">{{ user.tagline }}</a></strong></p>
+    {% else %}
+        <p><strong>{{ user.tagline }}</p>
+    {% endif %}
 </div>
 <div class="row">
     <div class="col-sm-4">
         <div class="container" align="center">
           <img class="img img-rounded" src="{{ user.avatar }}">
-          <p style="text-align:center">{{ user.bio }}</p>
+            {% if session['signed'] %}
+            <p><strong></strong></p>
+                <p style="text-align:center"><a href="#" id="biography" data-type="text" data-url="/user_edit_biography" data-pk="{{user.id}}"  data-title="Change your short biography">{{ user.bio }}</a></p>
+            {% else %}
+                <p style="text-align:center">{{ user.bio }}</p>
+            {% endif %}
+
         </div>
 
     </div>
@@ -84,7 +102,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Portfolio</h4>
             </div>
-            <div class="modal-body">                
+            <div class="modal-body">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-1">
@@ -98,7 +116,7 @@
                     {{ portoform.title(class="form-control", placeholder="Give your project a clear and concise title")}}
                                     <p class="help-block" id="error_title">{{ portoform.title.errors[0] }}</p>
                                 </div>
-                                
+
                                 <div class="form-group">
                      {{ portoform.description.label }}
                     {{ portoform.description(class="form-control", placeholder="Describe your project as interesting as possible")}}
@@ -118,7 +136,7 @@
                         </div>
                     </div>
             </div>
-            <div class="modal-footer">                                  
+            <div class="modal-footer">
                 <button type="submit" class="btn btn-primary btn-success" id="portform_btnsave">Save</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
@@ -133,7 +151,7 @@
 
 
 <script>
-              
+
     $(document).ready(function(){
 
     });
@@ -143,24 +161,24 @@
         bootbox.confirm("<strong>Portfolio deletion</strong><p>You can't undo this action. Are you sure?</p>", function(result){
             if(result)
             {
-                 $.getJSON(  
-                    "/portfolio_delete/" + id,  
+                 $.getJSON(
+                    "/portfolio_delete/" + id,
                     {}
-                ).done(function(data){       
+                ).done(function(data){
                     location.reload();
                 }).fail(function(data,textstatus,xhr){
-                    alert('fail = ' + data + ', textstatus ' + textstatus );    
+                    alert('fail = ' + data + ', textstatus ' + textstatus );
                 })
                 ;
             }
         });
     }
-    
+
     function editPortform(id)
     {
         $("#portfolio_id").val(id);
-        $.getJSON(  
-            "/portfolio_get/" + id,  
+        $.getJSON(
+            "/portfolio_get/" + id,
             {}
         ).done(function(data){
             $("#portfolio_id").val(data.id);
@@ -170,7 +188,7 @@
             $("#tags").tagsinput("add", data.tags);
             $("#porto_form").modal('show');
         }).fail(function(data,textstatus,xhr){
-            alert('fail = ' + data + ', textstatus ' + textstatus );    
+            alert('fail = ' + data + ', textstatus ' + textstatus );
         })
         ;
 
@@ -186,20 +204,20 @@
     });
 
     $("#portform_btnsave").click(function(){
-        $.post(  
-            "{{ url_for('portfolio_add_update') }}",  
-            $("#portform").serialize(),  
+        $.post(
+            "{{ url_for('portfolio_add_update') }}",
+            $("#portform").serialize(),
             function(data, textStatus) {
                 console.log(data)
                 var errors = $.parseJSON(data);
-    
+
 
                 $("#error_title").text("");
                 $("#error_description").text("");
                 $("#error_tags").text("");
-    
+
                 if(errors.iserror)
-                {       
+                {
                     console.log('set');
                     if(errors.title!=undefined) $("#error_title").text(errors.title[0]);
                     if(errors.description!=undefined) $("#error_description").text(errors.description[0]);
@@ -209,9 +227,41 @@
                     $("#porto_form").modal('hide');
                     location.reload();
                 }
-            }  
+            }
         );
     });
 
+
 </script>
+{% if session['signed'] %}
+    <script src="/static/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    <script>
+        $('#tagline').editable({
+            placement:"right",
+            success: function(response, newValue)
+            {
+                if(response.status == 'error') return response.msg; //msg will be shown in editable form
+            }
+        });
+
+        $('#biography').editable({
+            placement:"right",
+            success: function(response, newValue)
+            {
+                //Nothing here
+            },
+            error: function(errors)
+            {
+               var msg = '';
+               if(errors && errors.responseText) { //ajax error, errors = xhr object
+                   msg = errors.responseText;
+               } else { //validation error (client-side or server-side)
+                   $.each(errors, function(k, v) { msg += k+": "+v+"<br>"; });
+               }
+               $('#msg').removeClass('alert-success').addClass('alert-error').html(msg).show();
+           }
+        });
+    </script>
+
+{% endif %}
 {% endblock %}
