@@ -17,8 +17,7 @@
         margin-right:0px;
     }
 </style>
-<div class="page-header">
-    
+<div class="page-header">    
     {% if session['signed'] %}
         <h1><a href="#" id="fullname" data-type="text" data-url="/user_edit_fullname" data-pk="{{user.id}}"  data-title="Change your fullname">{{ user.fullname }}</a></h1>
         <p><strong><a href="#" id="tagline" data-type="text" data-url="/user_edit_tagline" data-pk="{{user.id}}"  data-title="Change your tagline">{{ user.tagline }}</a></strong></p>
@@ -31,10 +30,10 @@
     <div class="col-sm-4">
         <div class="container" >
             {% if session['signed'] %}
-                <a href="javascript:uploadAvatar();" id="avatar"><img class="img img-rounded" src="{{ user.avatar }}"></a>
+                <a href="javascript:uploadAvatar({{user.id}});"><img id="avatar" width="300" class="img img-rounded" src="{{ user.avatar }}"></a>
                 <p><a href="#" id="biography" data-type="textarea" data-url="/user_edit_biography" data-pk="{{user.id}}"  data-title="Change your short biography">{{ user.bio }}</a></p>
             {% else %}
-                <img id="avatar" class="img img-rounded" src="{{ user.avatar }}">
+                <img id="avatar" width="300" class="img img-rounded" src="{{ user.avatar }}">
                 <p>{{ user.bio }}</p>
             {% endif %}
 
@@ -155,25 +154,18 @@
         <h4 class="modal-title" id="myModalLabel">Upload Avatar</h4>
       </div>
       <div class="modal-body">
-        <span class="btn btn-success fileinput-button">
-        <i class="glyphicon glyphicon-plus"></i>
-        <span>Add files...</span>
-        <!-- The file input field used as target for the file upload widget -->
-        <input id="fileupload" type="file" name="files[]" multiple>
-        </span>
-        <br>
-        <br>
-        <!-- The global progress bar -->
-        <div id="progress" class="progress">
-            <div class="progress-bar progress-bar-success"></div>
-        </div>
-        <!-- The container for the uploaded files -->
-        <div id="files" class="files"></div>
-        <br>
+          <form id="upload-file" method="post" enctype="multipart/form-data">
+              <input type="hidden" id="avatar_user_id" name="avatar_user_id"/>
+            <span class="btn btn-success fileinput-button">
+            <i class="glyphicon glyphicon-plus"></i>
+            <span>Add files...</span>
+                <input name="file" type="file">
+            </span>
+            <button id="upload-file-btn" type="button" class="btn btn-primary">Upload</button>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
@@ -296,11 +288,33 @@
 
     <script>
 
-        function uploadAvatar()
+        function uploadAvatar(id)
         {
-
+            $("#avatar_user_id").val(id);
             $('#avatar_form').modal();
         }
+
+        $(function () {
+            $('#upload-file-btn').click(function () {
+                var form_data = new FormData($('#upload-file')[0]);
+                form_data.append("avatar_user_id", $("avatar_user_id").val());
+                $.ajax({
+                    type: 'POST',
+                    url: '/user_upload_avatar',
+                    data: form_data,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    async: false,
+                    success: function (data) {              
+                        $('#avatar_form').modal('hide');
+                        $("#avatar").attr("src", data);
+                    },
+                });
+            });
+        });
     </script>
+
+
 {% endif %}
 {% endblock %}

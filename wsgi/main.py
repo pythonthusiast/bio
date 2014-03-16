@@ -13,12 +13,17 @@ import json
 from collections import OrderedDict
 from flask import jsonify
 from sqlalchemy.ext import serializer
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), "static/upload")
+ALLOWED_EXTENSIONS = set(['bmp', 'png', 'jpg', 'jpeg', 'gif'])
 
 application = Flask(__name__)
 
 application.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('OPENSHIFT_POSTGRESQL_DB_URL') if os.environ.get('OPENSHIFT_POSTGRESQL_DB_URL') else os.environ.get('LOCAL_DB_URL')
 application.config['CSRF_ENABLED'] = True
 application.config['SECRET_KEY'] = 'rahasiabesar'
+application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 db = SQLAlchemy(application)
 
@@ -314,10 +319,28 @@ def user_edit_biography():
     result['status'] = 'success';
     return json.dumps(result)
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
+@application.route('/user_upload_avatar', methods = ['POST'])
+def user_upload_avatar():
+    if request.method == 'POST':
+        id = request.form["avatar_user_id"]
+        file = request.files['file']
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(application.config['UPLOAD_FOLDER'], filename))
+            img = "/static/upload/" + filename
+            user = Users.query.get(id)
+            user.avatar = img
+            db.session.commit()
+            return img
 
 def dbinit():
-    db.drop_all()
+    #db.drop_all()
     db.create_all()
+    '''
     user = Users(username='ekowibowo', fullname='Eko Suprapto Wibowo', password=hash_string('rahasia'),
                          email='swdev.bali@gmail.com',
                          tagline='A cool coder and an even cooler Capoeirista',
@@ -335,6 +358,7 @@ def dbinit():
                                     tags='extjs,python,openshift,flask,sqlalchemy,postgresql,bootstrap3'))
     db.session.add(user)
     db.session.commit()
+    '''
 
 @application.errorhandler(404)
 def page_not_found(e):
