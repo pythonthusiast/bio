@@ -1,95 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <SchemaVersion>2.0</SchemaVersion>
-        <ProjectGuid>{a8ab55a4-5e5b-42d0-b2e6-ff7d6ba08b54}</ProjectGuid>
-        <ProjectHome>wsgi\</ProjectHome>
-        <StartupFile>main.py</StartupFile>
-        <SearchPath />
-        <WorkingDirectory>.</WorkingDirectory>
-        <OutputPath>.</OutputPath>
-        <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
-        <InterpreterVersion>2.7</InterpreterVersion>
-        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
-    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
-    <ItemGroup>
-        <Compile Include="config.py" />
-        <Compile Include="main.py" />
-        <Content Include="static\signup-horizontal-result.html" />
-        <Content Include="static\tos.html" />
-        <Content Include="static\bootstrap-tagsinput.css" />
-        <Content Include="static\tagmanager.css" />
-        <Content Include="static\bootbox.min.js" />
-        <Content Include="static\bootstrap-tagsinput.js" />
-        <Content Include="static\bootstrap-tagsinput.min.js" />
-        <Content Include="static\tagmanager.js" />
-        <Content Include="static\avatar.png" />
-        <Content Include="static\dropbox.png" />
-        <Content Include="static\forkme_left_green_007200.png" />
-        <Content Include="static\smiley-cool.gif" />
-        <Content Include="templates\404.html" />
-        <Content Include="templates\base-layout.html" />
-        <Content Include="templates\hello_world.html" />
-        <Content Include="templates\index.html" />
-        <Content Include="templates\profile.html" />
-        <Content Include="templates\signinpage.html" />
-        <Content Include="templates\signup-horizontal.html" />
-        <Content Include="templates\signup-success.html" />
-        <Content Include="templates\signup.html" />
-        <Content Include="static\assets\css\docs.css" />
-        <Content Include="static\assets\css\pygments-manni.css" />
-        <Content Include="static\assets\ico\apple-touch-icon-114-precomposed.png" />
-        <Content Include="static\assets\ico\apple-touch-icon-144-precomposed.png" />
-        <Content Include="static\assets\ico\apple-touch-icon-57-precomposed.png" />
-        <Content Include="static\assets\ico\apple-touch-icon-72-precomposed.png" />
-        <Content Include="static\assets\ico\favicon.png" />
-        <Content Include="static\assets\js\application.js" />
-        <Content Include="static\assets\js\customizer.js" />
-        <Content Include="static\assets\js\filesaver.js" />
-        <Content Include="static\assets\js\holder.js" />
-        <Content Include="static\assets\js\html5shiv.js" />
-        <Content Include="static\assets\js\jquery.js" />
-        <Content Include="static\assets\js\jszip.js" />
-        <Content Include="static\assets\js\less.js" />
-        <Content Include="static\assets\js\raw-files.js" />
-        <Content Include="static\assets\js\respond.min.js" />
-        <Content Include="static\assets\js\uglify.js" />
-        <Content Include="static\bootstrap3-editable\css\bootstrap-editable.css" />
-        <Content Include="static\bootstrap3-editable\img\clear.png" />
-        <Content Include="static\bootstrap3-editable\img\loading.gif" />
-        <Content Include="static\bootstrap3-editable\js\bootstrap-editable.js" />
-        <Content Include="static\bootstrap3-editable\js\bootstrap-editable.min.js" />
-        <Content Include="static\dist\css\bootstrap-theme.css" />
-        <Content Include="static\dist\css\bootstrap-theme.min.css" />
-        <Content Include="static\dist\css\bootstrap.css" />
-        <Content Include="static\dist\css\bootstrap.min.css" />
-        <Content Include="static\dist\fonts\glyphicons-halflings-regular.svg" />
-        <Content Include="static\dist\js\bootstrap.js" />
-        <Content Include="static\dist\js\bootstrap.min.js" />
-        <Content Include="static\themes\water\starter-template.css" />
-        <Content Include="templates\themes\water\bio.html" />
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="static" />
-        <Folder Include="static\assets\css" />
-        <Folder Include="static\assets\ico" />
-        <Folder Include="static\assets\js" />
-        <Folder Include="static\bootstrap3-editable\css" />
-        <Folder Include="static\bootstrap3-editable\img" />
-        <Folder Include="static\bootstrap3-editable\js" />
-        <Folder Include="static\dist\css" />
-        <Folder Include="static\dist\fonts" />
-        <Folder Include="static\dist\js" />
-        <Folder Include="static\themes\water" />
-        <Folder Include="templates" />
-        <Folder Include="templates\themes\water" />
-    </ItemGroup>
-    <ItemGroup>
-        <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\2.7" />
-    </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a8ab55a4-5e5b-42d0-b2e6-ff7d6ba08b54}</ProjectGuid>
+    <ProjectHome>wsgi\</ProjectHome>
+    <StartupFile>main.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Compile Include="main.py" />
+    <Content Include="static\signup-horizontal-result.html" />
+    <Content Include="static\tos.html" />
+    <Content Include="static\bootstrap-tagsinput.css" />
+    <Content Include="static\tagmanager.css" />
+    <Content Include="static\bootbox.min.js" />
+    <Content Include="static\bootstrap-tagsinput.js" />
+    <Content Include="static\bootstrap-tagsinput.min.js" />
+    <Content Include="static\tagmanager.js" />
+    <Content Include="static\avatar.png" />
+    <Content Include="static\dropbox.png" />
+    <Content Include="static\forkme_left_green_007200.png" />
+    <Content Include="static\smiley-cool.gif" />
+    <Content Include="templates\404.html" />
+    <Content Include="templates\base-layout.html" />
+    <Content Include="templates\hello_world.html" />
+    <Content Include="templates\index.html" />
+    <Content Include="templates\profile.html" />
+    <Content Include="templates\signinpage.html" />
+    <Content Include="templates\signup-horizontal.html" />
+    <Content Include="templates\signup-success.html" />
+    <Content Include="templates\signup.html" />
+    <Content Include="static\assets\css\docs.css" />
+    <Content Include="static\assets\css\pygments-manni.css" />
+    <Content Include="static\assets\ico\apple-touch-icon-114-precomposed.png" />
+    <Content Include="static\assets\ico\apple-touch-icon-144-precomposed.png" />
+    <Content Include="static\assets\ico\apple-touch-icon-57-precomposed.png" />
+    <Content Include="static\assets\ico\apple-touch-icon-72-precomposed.png" />
+    <Content Include="static\assets\ico\favicon.png" />
+    <Content Include="static\assets\js\application.js" />
+    <Content Include="static\assets\js\customizer.js" />
+    <Content Include="static\assets\js\filesaver.js" />
+    <Content Include="static\assets\js\holder.js" />
+    <Content Include="static\assets\js\html5shiv.js" />
+    <Content Include="static\assets\js\jquery.js" />
+    <Content Include="static\assets\js\jszip.js" />
+    <Content Include="static\assets\js\less.js" />
+    <Content Include="static\assets\js\raw-files.js" />
+    <Content Include="static\assets\js\respond.min.js" />
+    <Content Include="static\assets\js\uglify.js" />
+    <Content Include="static\bootstrap3-editable\css\bootstrap-editable.css" />
+    <Content Include="static\bootstrap3-editable\img\clear.png" />
+    <Content Include="static\bootstrap3-editable\img\loading.gif" />
+    <Content Include="static\bootstrap3-editable\js\bootstrap-editable.js" />
+    <Content Include="static\bootstrap3-editable\js\bootstrap-editable.min.js" />
+    <Content Include="static\dist\css\bootstrap-theme.css" />
+    <Content Include="static\dist\css\bootstrap-theme.min.css" />
+    <Content Include="static\dist\css\bootstrap.css" />
+    <Content Include="static\dist\css\bootstrap.min.css" />
+    <Content Include="static\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="static\dist\js\bootstrap.js" />
+    <Content Include="static\dist\js\bootstrap.min.js" />
+    <Content Include="static\themes\water\starter-template.css" />
+    <Content Include="templates\themes\water\bio.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="static" />
+    <Folder Include="static\assets\" />
+    <Folder Include="static\assets\css" />
+    <Folder Include="static\assets\ico" />
+    <Folder Include="static\assets\js" />
+    <Folder Include="static\bootstrap3-editable\" />
+    <Folder Include="static\bootstrap3-editable\css" />
+    <Folder Include="static\bootstrap3-editable\img" />
+    <Folder Include="static\bootstrap3-editable\js" />
+    <Folder Include="static\dist\" />
+    <Folder Include="static\dist\css" />
+    <Folder Include="static\dist\fonts" />
+    <Folder Include="static\dist\js" />
+    <Folder Include="static\themes\" />
+    <Folder Include="static\themes\water" />
+    <Folder Include="templates" />
+    <Folder Include="templates\themes\" />
+    <Folder Include="templates\themes\water" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\2.7" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>
