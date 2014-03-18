@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d7f6c07-c78c-4bfa-8b1c-aae361eabd3b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wsgi/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bio.v11.suo" afterPath="$PROJECT_DIR$/bio.v11.suo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/bio.iml" afterPath="$PROJECT_DIR$/.idea/bio.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bio.pyproj" afterPath="$PROJECT_DIR$/bio.pyproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/main.py" afterPath="$PROJECT_DIR$/wsgi/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\01_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-002.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-003.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-004.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-005.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-006.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-009.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-014.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\ekowibowo_12_jam_di_hari_minggu.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\ekowibowo_46590732.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\ekowibowo_batman.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\ekowibowo_bizlaf-snapshot.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bio.iws" />
@@ -34,7 +41,7 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="26" selection-start="237" selection-end="237" vertical-scroll-proportion="0.34836066" vertical-offset="0" max-vertical-offset="488">
+            <state line="6" column="28" selection-start="188" selection-end="284" vertical-scroll-proportion="0.2090164" vertical-offset="0" max-vertical-offset="488">
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -146,6 +153,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wsgi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -618,7 +643,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="26" selection-start="237" selection-end="237" vertical-scroll-proportion="0.34836066" vertical-offset="0" max-vertical-offset="488">
+        <state line="6" column="28" selection-start="188" selection-end="284" vertical-scroll-proportion="0.2090164" vertical-offset="0" max-vertical-offset="488">
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
