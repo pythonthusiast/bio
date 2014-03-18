@@ -17,7 +17,10 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="config.py" />
+    <Compile Include="forms.py" />
     <Compile Include="main.py" />
+    <Compile Include="models.py" />
     <Content Include="static\signup-horizontal-result.html" />
     <Content Include="static\tos.html" />
     <Content Include="static\bootstrap-tagsinput.css" />
