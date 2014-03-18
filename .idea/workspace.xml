@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d7f6c07-c78c-4bfa-8b1c-aae361eabd3b" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\01_1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-002.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-003.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-004.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-005.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-006.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-009.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\Detective-conan-vol01-indo-014.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\ekowibowo_12_jam_di_hari_minggu.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\ekowibowo_46590732.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\ekowibowo_batman.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\static\upload\ekowibowo_bizlaf-snapshot.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="C:\Users\Eko Wibowo\pythonthusiast\bio\wsgi\application-original" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/application" afterPath="$PROJECT_DIR$/wsgi/application" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bio.iws" />
@@ -38,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="28" selection-start="188" selection-end="284" vertical-scroll-proportion="0.2090164" vertical-offset="0" max-vertical-offset="488">
+            <state line="5" column="9" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -49,19 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wsgi/views.py">
+      <file leaf-file-name="application" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wsgi/application">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="4284">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Steps to Reorganize application" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Steps to Reorganize application">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="7" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+            <state line="11" column="18" selection-start="334" selection-end="334" vertical-scroll-proportion="0.3831967" vertical-offset="0" max-vertical-offset="488">
               <folding />
             </state>
           </provider>
@@ -88,6 +68,7 @@
         <option value="$PROJECT_DIR$/wsgi/views.py" />
         <option value="$PROJECT_DIR$/Steps to Reorganize application" />
         <option value="$PROJECT_DIR$/wsgi/main.py" />
+        <option value="$PROJECT_DIR$/wsgi/application" />
       </list>
     </option>
   </component>
@@ -153,24 +134,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsgi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -617,11 +580,6 @@
         <state line="5" column="14" selection-start="243" selection-end="243" vertical-scroll-proportion="0.17102616" vertical-offset="0" max-vertical-offset="765" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/application">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="0" selection-start="10" selection-end="10" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238" />
@@ -636,17 +594,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Steps to Reorganize application">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="7" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+        <state line="26" column="7" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.9057377" vertical-offset="0" max-vertical-offset="544">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="28" selection-start="188" selection-end="284" vertical-scroll-proportion="0.2090164" vertical-offset="0" max-vertical-offset="488">
+        <state line="5" column="9" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/application">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="18" selection-start="334" selection-end="334" vertical-scroll-proportion="0.3831967" vertical-offset="0" max-vertical-offset="488">
+          <folding />
         </state>
       </provider>
     </entry>
