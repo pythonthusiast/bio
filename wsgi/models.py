@@ -17,7 +17,7 @@ class Users(db.Model, object):
     active = db.Column(db.Boolean)
 
     portfolio = db.relationship('Portfolio')
-
+   
 
     def is_authenticated(self):
         return True

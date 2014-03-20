@@ -3,9 +3,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{a8ab55a4-5e5b-42d0-b2e6-ff7d6ba08b54}</ProjectGuid>
-    <ProjectHome>wsgi\</ProjectHome>
-    <StartupFile>main.py</StartupFile>
+    <ProjectGuid>{d3083356-b41c-4961-9145-aec735dae96b}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>wsgi\main.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -17,83 +17,92 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
-    <Compile Include="config.py" />
-    <Compile Include="forms.py" />
-    <Compile Include="main.py" />
-    <Compile Include="models.py" />
-    <Content Include="static\signup-horizontal-result.html" />
-    <Content Include="static\tos.html" />
-    <Content Include="static\bootstrap-tagsinput.css" />
-    <Content Include="static\tagmanager.css" />
-    <Content Include="static\bootbox.min.js" />
-    <Content Include="static\bootstrap-tagsinput.js" />
-    <Content Include="static\bootstrap-tagsinput.min.js" />
-    <Content Include="static\tagmanager.js" />
-    <Content Include="static\avatar.png" />
-    <Content Include="static\dropbox.png" />
-    <Content Include="static\forkme_left_green_007200.png" />
-    <Content Include="static\smiley-cool.gif" />
-    <Content Include="templates\404.html" />
-    <Content Include="templates\base-layout.html" />
-    <Content Include="templates\hello_world.html" />
-    <Content Include="templates\index.html" />
-    <Content Include="templates\profile.html" />
-    <Content Include="templates\signinpage.html" />
-    <Content Include="templates\signup-horizontal.html" />
-    <Content Include="templates\signup-success.html" />
-    <Content Include="templates\signup.html" />
-    <Content Include="static\assets\css\docs.css" />
-    <Content Include="static\assets\css\pygments-manni.css" />
-    <Content Include="static\assets\ico\apple-touch-icon-114-precomposed.png" />
-    <Content Include="static\assets\ico\apple-touch-icon-144-precomposed.png" />
-    <Content Include="static\assets\ico\apple-touch-icon-57-precomposed.png" />
-    <Content Include="static\assets\ico\apple-touch-icon-72-precomposed.png" />
-    <Content Include="static\assets\ico\favicon.png" />
-    <Content Include="static\assets\js\application.js" />
-    <Content Include="static\assets\js\customizer.js" />
-    <Content Include="static\assets\js\filesaver.js" />
-    <Content Include="static\assets\js\holder.js" />
-    <Content Include="static\assets\js\html5shiv.js" />
-    <Content Include="static\assets\js\jquery.js" />
-    <Content Include="static\assets\js\jszip.js" />
-    <Content Include="static\assets\js\less.js" />
-    <Content Include="static\assets\js\raw-files.js" />
-    <Content Include="static\assets\js\respond.min.js" />
-    <Content Include="static\assets\js\uglify.js" />
-    <Content Include="static\bootstrap3-editable\css\bootstrap-editable.css" />
-    <Content Include="static\bootstrap3-editable\img\clear.png" />
-    <Content Include="static\bootstrap3-editable\img\loading.gif" />
-    <Content Include="static\bootstrap3-editable\js\bootstrap-editable.js" />
-    <Content Include="static\bootstrap3-editable\js\bootstrap-editable.min.js" />
-    <Content Include="static\dist\css\bootstrap-theme.css" />
-    <Content Include="static\dist\css\bootstrap-theme.min.css" />
-    <Content Include="static\dist\css\bootstrap.css" />
-    <Content Include="static\dist\css\bootstrap.min.css" />
-    <Content Include="static\dist\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="static\dist\js\bootstrap.js" />
-    <Content Include="static\dist\js\bootstrap.min.js" />
-    <Content Include="static\themes\water\starter-template.css" />
-    <Content Include="templates\themes\water\bio.html" />
+    <Compile Include="wsgi\initdb.py" />
+    <Compile Include="setup.py" />
+    <Compile Include="migration\env.py" />
+    <Compile Include="wsgi\config.py" />
+    <Compile Include="wsgi\forms.py" />
+    <Compile Include="wsgi\main.py" />
+    <Compile Include="wsgi\models.py" />
+    <Compile Include="wsgi\views.py" />
+    <Compile Include="migration\versions\1f922efc9109_merging_firstname_and_lastname_into_.py" />
+    <Compile Include="migration\versions\5145ac2c72c4_adding_currently_live_in_field.py" />
+    <Content Include="wsgi\static\signup-horizontal-result.html" />
+    <Content Include="wsgi\static\tos.html" />
+    <Content Include="wsgi\static\bootstrap-tagsinput.css" />
+    <Content Include="wsgi\static\tagmanager.css" />
+    <Content Include="wsgi\static\bootbox.min.js" />
+    <Content Include="wsgi\static\bootstrap-tagsinput.js" />
+    <Content Include="wsgi\static\bootstrap-tagsinput.min.js" />
+    <Content Include="wsgi\static\tagmanager.js" />
+    <Content Include="wsgi\static\avatar.png" />
+    <Content Include="wsgi\static\dropbox.png" />
+    <Content Include="wsgi\static\forkme_left_green_007200.png" />
+    <Content Include="wsgi\static\smiley-cool.gif" />
+    <Content Include="wsgi\templates\404.html" />
+    <Content Include="wsgi\templates\base-layout.html" />
+    <Content Include="wsgi\templates\hello_world.html" />
+    <Content Include="wsgi\templates\index.html" />
+    <Content Include="wsgi\templates\profile.html" />
+    <Content Include="wsgi\templates\signinpage.html" />
+    <Content Include="wsgi\templates\signup-horizontal.html" />
+    <Content Include="wsgi\templates\signup-success.html" />
+    <Content Include="wsgi\templates\signup.html" />
+    <Content Include="wsgi\static\assets\css\docs.css" />
+    <Content Include="wsgi\static\assets\css\pygments-manni.css" />
+    <Content Include="wsgi\static\assets\ico\apple-touch-icon-114-precomposed.png" />
+    <Content Include="wsgi\static\assets\ico\apple-touch-icon-144-precomposed.png" />
+    <Content Include="wsgi\static\assets\ico\apple-touch-icon-57-precomposed.png" />
+    <Content Include="wsgi\static\assets\ico\apple-touch-icon-72-precomposed.png" />
+    <Content Include="wsgi\static\assets\ico\favicon.png" />
+    <Content Include="wsgi\static\assets\js\application.js" />
+    <Content Include="wsgi\static\assets\js\customizer.js" />
+    <Content Include="wsgi\static\assets\js\filesaver.js" />
+    <Content Include="wsgi\static\assets\js\holder.js" />
+    <Content Include="wsgi\static\assets\js\html5shiv.js" />
+    <Content Include="wsgi\static\assets\js\jquery.js" />
+    <Content Include="wsgi\static\assets\js\jszip.js" />
+    <Content Include="wsgi\static\assets\js\less.js" />
+    <Content Include="wsgi\static\assets\js\raw-files.js" />
+    <Content Include="wsgi\static\assets\js\respond.min.js" />
+    <Content Include="wsgi\static\assets\js\uglify.js" />
+    <Content Include="wsgi\static\bootstrap3-editable\css\bootstrap-editable.css" />
+    <Content Include="wsgi\static\bootstrap3-editable\img\clear.png" />
+    <Content Include="wsgi\static\bootstrap3-editable\img\loading.gif" />
+    <Content Include="wsgi\static\bootstrap3-editable\js\bootstrap-editable.js" />
+    <Content Include="wsgi\static\bootstrap3-editable\js\bootstrap-editable.min.js" />
+    <Content Include="wsgi\static\dist\css\bootstrap-theme.css" />
+    <Content Include="wsgi\static\dist\css\bootstrap-theme.min.css" />
+    <Content Include="wsgi\static\dist\css\bootstrap.css" />
+    <Content Include="wsgi\static\dist\css\bootstrap.min.css" />
+    <Content Include="wsgi\static\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="wsgi\static\dist\js\bootstrap.js" />
+    <Content Include="wsgi\static\dist\js\bootstrap.min.js" />
+    <Content Include="wsgi\static\themes\water\starter-template.css" />
+    <Content Include="wsgi\templates\themes\water\bio.html" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="static" />
-    <Folder Include="static\assets\" />
-    <Folder Include="static\assets\css" />
-    <Folder Include="static\assets\ico" />
-    <Folder Include="static\assets\js" />
-    <Folder Include="static\bootstrap3-editable\" />
-    <Folder Include="static\bootstrap3-editable\css" />
-    <Folder Include="static\bootstrap3-editable\img" />
-    <Folder Include="static\bootstrap3-editable\js" />
-    <Folder Include="static\dist\" />
-    <Folder Include="static\dist\css" />
-    <Folder Include="static\dist\fonts" />
-    <Folder Include="static\dist\js" />
-    <Folder Include="static\themes\" />
-    <Folder Include="static\themes\water" />
-    <Folder Include="templates" />
-    <Folder Include="templates\themes\" />
-    <Folder Include="templates\themes\water" />
+    <Folder Include="migration" />
+    <Folder Include="migration\versions" />
+    <Folder Include="wsgi" />
+    <Folder Include="wsgi\static" />
+    <Folder Include="wsgi\static\assets\" />
+    <Folder Include="wsgi\static\assets\css" />
+    <Folder Include="wsgi\static\assets\ico" />
+    <Folder Include="wsgi\static\assets\js" />
+    <Folder Include="wsgi\static\bootstrap3-editable\" />
+    <Folder Include="wsgi\static\bootstrap3-editable\css" />
+    <Folder Include="wsgi\static\bootstrap3-editable\img" />
+    <Folder Include="wsgi\static\bootstrap3-editable\js" />
+    <Folder Include="wsgi\static\dist\" />
+    <Folder Include="wsgi\static\dist\css" />
+    <Folder Include="wsgi\static\dist\fonts" />
+    <Folder Include="wsgi\static\dist\js" />
+    <Folder Include="wsgi\static\themes\" />
+    <Folder Include="wsgi\static\themes\water" />
+    <Folder Include="wsgi\templates" />
+    <Folder Include="wsgi\templates\themes\" />
+    <Folder Include="wsgi\templates\themes\water" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\2.7" />
