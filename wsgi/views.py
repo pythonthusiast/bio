@@ -201,7 +201,7 @@ class PortfolioView(FlaskView):
         return json.dumps(result)
 
 class BiographyView(FlaskView):
-    @route('edit_biography', methods=['GET', 'POST'])
+    @route('edit_biography', methods=['POST'])
     def edit_biography(self):
         id = request.form["pk"]
         user = Users.query.get(id)
@@ -210,7 +210,7 @@ class BiographyView(FlaskView):
         db.session.commit()
         return json.dumps(result)
 
-    @route('edit_fullname', methods=['GET', 'POST'])
+    @route('edit_fullname', methods=['POST'])
     def edit_fullname(self):
         id = request.form["pk"]
         user = Users.query.get(id)
@@ -219,7 +219,7 @@ class BiographyView(FlaskView):
         db.session.commit()
         return json.dumps(result)  #or, as it is an empty json, you can simply use return "{}"
 
-    @route('edit_tagline', methods=['GET', 'POST'])
+    @route('edit_tagline', methods=['POST'])
     def edit_tagline(self):
         id = request.form["pk"]
         user = Users.query.get(id)

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d7f6c07-c78c-4bfa-8b1c-aae361eabd3b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/templates/themes/water/bio.html" afterPath="$PROJECT_DIR$/wsgi/templates/themes/water/bio.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wsgi/views.py" afterPath="$PROJECT_DIR$/wsgi/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -18,7 +15,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/bio$initdb.coverage" NAME="initdb Coverage Results" MODIFIED="1395597782385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/wsgi" />
-    <SUITE FILE_PATH="coverage/bio$main.coverage" NAME="main Coverage Results" MODIFIED="1395599974792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/wsgi" />
+    <SUITE FILE_PATH="coverage/bio$main.coverage" NAME="main Coverage Results" MODIFIED="1395603107831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/wsgi" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -32,13 +29,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wsgi/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="29" selection-start="2938" selection-end="2951" vertical-scroll-proportion="-5.28" vertical-offset="1194" max-vertical-offset="4386">
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state line="53" column="9" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.13033175" vertical-offset="625" max-vertical-offset="4165">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="30" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,7 +50,7 @@
       <file leaf-file-name="bio.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wsgi/templates/themes/water/bio.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="257" column="12" selection-start="10327" selection-end="10327" vertical-scroll-proportion="-6.8461537" vertical-offset="4191" max-vertical-offset="5270">
+            <state line="257" column="12" selection-start="10327" selection-end="10327" vertical-scroll-proportion="0.0" vertical-offset="4191" max-vertical-offset="5270">
               <folding />
             </state>
           </provider>
@@ -61,10 +65,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload.sh" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="upload.sh" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.openshift/action_hooks/upload.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="422">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
               <folding />
             </state>
           </provider>
@@ -96,9 +100,9 @@
         <option value="$PROJECT_DIR$/wsgi/templates/signup-success.html" />
         <option value="$PROJECT_DIR$/wsgi/templates/signinpage.html" />
         <option value="$PROJECT_DIR$/wsgi/initdb.py" />
-        <option value="$PROJECT_DIR$/wsgi/views.py" />
         <option value="$PROJECT_DIR$/wsgi/templates/themes/water/bio.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/wsgi/views.py" />
       </list>
     </option>
   </component>
@@ -134,7 +138,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -149,7 +152,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fikrposdc" />
+              <option name="myItemId" value="bio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -159,7 +162,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fikrposdc" />
+              <option name="myItemId" value="bio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -167,50 +170,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".openshift" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".openshift" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="action_hooks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -352,6 +314,9 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -373,9 +338,6 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -457,26 +419,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2492647" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3075734" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3075734" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -499,9 +461,7 @@
     <entry file="file://$PROJECT_DIR$/wsgi/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="4284">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -520,9 +480,7 @@
     <entry file="file://$PROJECT_DIR$/wsgi/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="4284">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -679,18 +637,9 @@
         <state line="11" column="18" selection-start="334" selection-end="334" vertical-scroll-proportion="0.30112723" vertical-offset="0" max-vertical-offset="621" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="27" selection-start="417" selection-end="417" vertical-scroll-proportion="0.3558776" vertical-offset="0" max-vertical-offset="621">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/__coding_resources__/fikrposdc/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="8" selection-start="412" selection-end="434" vertical-scroll-proportion="0.38325283" vertical-offset="0" max-vertical-offset="621">
-          <folding />
-        </state>
+        <state line="14" column="8" selection-start="412" selection-end="434" vertical-scroll-proportion="0.38325283" vertical-offset="0" max-vertical-offset="621" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/__coding_resources__/fikrposdc/wsgi/templates/layout-index.html">
@@ -754,37 +703,22 @@
     </entry>
     <entry file="file://$USER_HOME$/__coding_resources__/fikrposdc/wsgi/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="8" selection-start="1849" selection-end="1849" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="7463">
-          <folding />
-        </state>
+        <state line="53" column="8" selection-start="1849" selection-end="1849" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="7463" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="935">
-          <folding />
-        </state>
+        <state line="29" column="0" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="935" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/initdb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="29" selection-start="2938" selection-end="2951" vertical-scroll-proportion="-5.28" vertical-offset="1194" max-vertical-offset="4386">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="18" column="13" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="510" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wsgi/templates/themes/water/bio.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="257" column="12" selection-start="10327" selection-end="10327" vertical-scroll-proportion="-6.8461537" vertical-offset="4191" max-vertical-offset="5270">
+        <state line="257" column="12" selection-start="10327" selection-end="10327" vertical-scroll-proportion="0.0" vertical-offset="4191" max-vertical-offset="5270">
           <folding />
         </state>
       </provider>
@@ -799,6 +733,20 @@
     <entry file="file://$PROJECT_DIR$/.openshift/action_hooks/upload.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="422">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="30" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="9" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.13033175" vertical-offset="625" max-vertical-offset="4165">
           <folding />
         </state>
       </provider>
