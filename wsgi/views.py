@@ -33,15 +33,11 @@ def hash_string(string):
 @application.route('/')
 @application.route('/<username>')
 def index(username=None):
-    print "1=", username
     if username is None:
-        print "2=", username
         return render_template('index.html', page_title='Biography just for you!', signin_form=SigninForm())
 
-    print "3=", username
     user = Users.query.filter_by(username=username).first()
     if user is None:
-        print "4=", username
         user = Users()
         user.username = username
         user.fullname = 'Batman, is that you?'
@@ -51,7 +47,6 @@ def index(username=None):
         return render_template('themes/water/bio.html', page_title='Claim this name : ' + username, user=user,
                                signin_form=SigninForm(), portoform=PortoForm())
     else:
-        print "5=", username
         return render_template('themes/water/bio.html', page_title=user.fullname, user=user, signin_form=SigninForm(),
                                portoform=PortoForm())
 
