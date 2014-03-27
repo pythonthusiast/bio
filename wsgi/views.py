@@ -16,7 +16,7 @@ from config import Config
 
 login_manager = LoginManager()
 login_manager.init_app(application)
-login_manager.login_view = '/signin'
+login_manager.login_view = '/auth/signin'
 
 
 @login_manager.user_loader
