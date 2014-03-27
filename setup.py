@@ -12,6 +12,7 @@ setup(name='Bio',
         'Flask-SQLAlchemy==1.0',
         'Flask-Login==0.2.7',
         'Flask-WTF==0.9.2',
-        'alembic'
+        'alembic',
+        'flask-classy==0.6.3',
       ],
      )

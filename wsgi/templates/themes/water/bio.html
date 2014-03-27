@@ -1,25 +1,22 @@
 {% extends "base-layout.html" %}
 {% block header %}
-{% if session['signed'] %}
+{% if session['signed'] and session['username']== user.username %}
 <link href="/static/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 {% endif %}
 {% endblock %}
 
-
 {% block content %}
-
 <style type="text/css">
     body.modal-open,
     .modal-open .navbar-fixed-top
     {
-        
         margin-right:0px;
     }
 </style>
 <div class="page-header">    
-    {% if session['signed'] %}
-        <h1><a href="#" id="fullname" data-type="text" data-url="/user_edit_fullname" data-pk="{{user.id}}"  data-title="Change your fullname">{{ user.fullname }}</a></h1>
-        <p><strong><a href="#" id="tagline" data-type="text" data-url="/user_edit_tagline" data-pk="{{user.id}}"  data-title="Change your tagline">{{ user.tagline }}</a></strong></p>
+    {% if session['signed'] and session['username']== user.username %}
+        <h1><a href="#" id="fullname" data-type="text" data-url="{{ url_for('BiographyView:edit_fullname') }}" data-pk="{{user.id}}"  data-title="Change your fullname">{{ user.fullname }}</a></h1>
+        <p><strong><a href="#" id="tagline" data-type="text" data-url="{{ url_for('BiographyView:edit_tagline') }}" data-pk="{{user.id}}"  data-title="Change your tagline">{{ user.tagline }}</a></strong></p>
     {% else %}
         <h1>{{ user.fullname }}</h1>
         <p><strong>{{ user.tagline }}</strong></p>
@@ -28,9 +25,9 @@
 <div class="row">
     <div class="col-sm-4">
         <div class="container" >
-            {% if session['signed'] %}
+            {% if session['signed'] and session['username']== user.username %}
                 <a href="javascript:uploadAvatar({{user.id}});"><img id="avatar" width="300" class="img img-rounded" src="{{ user.avatar }}"></a>
-                <p><a href="#" id="biography" data-type="textarea" data-url="/user_edit_biography" data-pk="{{user.id}}"  data-title="Change your short biography">{{ user.bio }}</a></p>
+                <p><a href="#" id="biography" data-type="textarea" data-url="{{ url_for('BiographyView:edit_biography') }}" data-pk="{{user.id}}"  data-title="Change your short biography">{{ user.bio }}</a></p>
             {% else %}
                 <img id="avatar" width="300" class="img img-rounded" src="{{ user.avatar }}">
                 <p>{{ user.bio }}</p>
@@ -45,7 +42,7 @@
 
                 </div>
                 <form class="navbar-form navbar-right" role="search">
-                    {% if session['signed'] %}
+                    {% if session['signed'] and session['username']== user.username %}
                     <button class="btn btn-default btn-sm btn-success" data-toggle="modal" data-target="porto_form" id="portform_btnadd">Add</button>
                     {% endif %}
                     <div class="form-group">
@@ -68,7 +65,7 @@
               <div class="container">
                   <div class="row">
                       <div class="col-sm-5">
-{% if session['signed'] %}
+{% if session['signed'] and session['username']== user.username %}
                           <a href="javascript:editPortform('{{porto.id}}');"><span class="glyphicon glyphicon-edit"></span></a> <a href="javascript:deletePortfolio('{{porto.id}}');"><span class="glyphicon glyphicon-remove"></span></a>
 {% endif %}
                           <strong>
@@ -185,7 +182,7 @@
             if(result)
             {
                  $.getJSON(
-                    "/portfolio_delete/" + id,
+                    "/portfolio/delete/" + id,
                     {}
                 ).done(function(data){
                     location.reload();
@@ -201,7 +198,7 @@
     {
         $("#portfolio_id").val(id);
         $.getJSON(
-            "/portfolio_get/" + id,
+            "/portfolio/get/" + id,
             {}
         ).done(function(data){
             $("#portfolio_id").val(data.id);
@@ -228,7 +225,7 @@
 
     $("#portform_btnsave").click(function(){
         $.post(
-            "{{ url_for('portfolio_add_update') }}",
+            "{{ url_for('PortfolioView:add_update') }}",
             $("#portform").serialize(),
             function(data, textStatus) {
                 console.log(data)
@@ -256,7 +253,7 @@
 
 
 </script>
-{% if session['signed'] %}
+{% if session['signed'] and session['username']== user.username %}
     <script src="/static/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
     <script>
         $('#fullname').editable({
@@ -288,7 +285,7 @@
                 form_data.append("avatar_user_id", $("avatar_user_id").val());
                 $.ajax({
                     type: 'POST',
-                    url: '/user_upload_avatar',
+                    url: "/biography/upload_avatar",
                     data: form_data,
                     contentType: false,
                     cache: false,

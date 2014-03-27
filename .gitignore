@@ -1,4 +1,4 @@
-wsgi/static/upload/*
+wsgi/static/upload
 env/
 alembic.ini
 *.py[cod]
