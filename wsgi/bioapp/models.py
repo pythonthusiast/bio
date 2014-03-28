@@ -1,5 +1,5 @@
-from main import db
 from collections import OrderedDict
+from bioapp import db
 
 class Users(db.Model, object):
     id = db.Column(db.Integer, primary_key=True)

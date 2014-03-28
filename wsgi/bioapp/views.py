@@ -4,19 +4,26 @@ import os
 
 from flask import render_template, request
 from flask import redirect, url_for, session
-from flask.ext.classy import FlaskView, route
-from flask.ext.login import LoginManager, login_user, logout_user, current_user, login_required
 from werkzeug.utils import secure_filename
 
-from main import application
+from flask.ext.classy import FlaskView, route
+from flask.ext.login import LoginManager, login_user, logout_user, current_user, login_required
+from bioapp import bioapp
+from bioapp import application
 from forms import *
 from models import *
 from config import Config
 
 
 login_manager = LoginManager()
-login_manager.init_app(application)
-login_manager.login_view = '/auth/signin'
+
+@bioapp.record_once
+def on_load(state):
+    login_manager.init_app(state.app)
+    login_manager.login_view = '/auth/signin'
+
+#login_manager.init_app(bioapp)
+
 
 
 @login_manager.user_loader
@@ -30,8 +37,8 @@ def hash_string(string):
     return md5.new(salted_hash).hexdigest()
 
 
-@application.route('/')
-@application.route('/<username>')
+@bioapp.route('/')
+@bioapp.route('/<username>')
 def index(username=None):
     if username is None:
         return render_template('index.html', page_title='Biography just for you!', signin_form=SigninForm())
@@ -78,7 +85,7 @@ class AuthView(FlaskView):
                     session.pop('next')
                     return redirect(next_page)
                 else:
-                    return redirect(url_for('index'))
+                    return redirect(url_for('BioApp.index'))
             return render_template('signinpage.html', signinpage_form=form, page_title='Sign In to Bio Application')
         else:
             session['next'] = request.args.get('next')
@@ -242,7 +249,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in Config.ALLOWED_EXTENSIONS
 
-AuthView.register(application)
-PortfolioView.register(application)
-BiographyView.register(application)
-SettingsView.register(application)
+AuthView.register(bioapp)
+PortfolioView.register(bioapp)
+BiographyView.register(bioapp)
+SettingsView.register(bioapp)

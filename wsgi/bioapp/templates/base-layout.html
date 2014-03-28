@@ -51,9 +51,9 @@
                     
                     <ul class="dropdown-menu">
                         <li><a href="/{{session['username']}}">Your Bio Page</a></li>
-                        <li><a href="{{ url_for('SettingsView:index') }}">Settings..</a></li>
+                        <li><a href="{{ url_for('BioApp.SettingsView:index') }}">Settings..</a></li>
                         <li class="divider"></li>
-                        <li><a href="{{ url_for('AuthView:signout') }}">Logout</a></li>
+                        <li><a href="{{ url_for('BioApp.AuthView:signout') }}">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -61,7 +61,7 @@
             
             {% if not signinpage_form %}
 
-            <form class="navbar-form navbar-right" action="{{ url_for('AuthView:signin')}}" method="POST">
+            <form class="navbar-form navbar-right" action="{{ url_for('BioApp.AuthView:signin')}}" method="POST">
               {{ signin_form.hidden_tag() }}                
                 <div class="form-group">
                   {{ signin_form.username(class="form-control", placeholder="Username") }}
