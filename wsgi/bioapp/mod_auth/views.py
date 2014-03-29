@@ -18,7 +18,7 @@ class AuthView(FlaskView):
     def signin(self):
         if request.method == 'POST':
             if current_user is not None and current_user.is_authenticated():
-                return redirect(url_for('BioApp.index'))
+                return redirect(url_for('bio.index'))
 
             form = SigninForm(request.form)
             if form.validate():
@@ -40,7 +40,7 @@ class AuthView(FlaskView):
                     session.pop('next')
                     return redirect(next_page)
                 else:
-                    return redirect(url_for('BioApp.index'))
+                    return redirect(url_for('bio.index'))
             return render_template('signinpage.html', signinpage_form=form, page_title='Sign In to Bio Application')
         else:
             session['next'] = request.args.get('next')
@@ -52,7 +52,7 @@ class AuthView(FlaskView):
     def signout(self):
         session.clear()
         logout_user()
-        return redirect(url_for('BioApp.index'))
+        return redirect(url_for('bio.index'))
 
     @route('signup', methods=['GET', 'POST'])
     def signup(self):

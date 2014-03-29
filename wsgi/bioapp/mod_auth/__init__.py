@@ -2,7 +2,7 @@ from flask import Blueprint
 from flask.ext.login import LoginManager
 
 login_manager = LoginManager()
-mod_auth = Blueprint('auth', __name__) #, url_prefix='/auth'
+mod_auth = Blueprint('auth', __name__, template_folder="templates"  ) #, url_prefix='/auth'
 from views import *
 
 @mod_auth.record_once

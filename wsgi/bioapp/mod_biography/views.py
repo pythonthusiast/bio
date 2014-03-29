@@ -11,8 +11,13 @@ from bioapp import db
 from bioapp.config import Config
 from bioapp import application
 
+
+'''
+This class still need security checking of id being given. It must be id of signed users
+'''
 class BiographyView(FlaskView):
     @route('edit_biography', methods=['POST'])
+    @login_required
     def edit_biography(self):
         id = request.form["pk"]
         user = Users.query.get(id)
@@ -22,6 +27,7 @@ class BiographyView(FlaskView):
         return json.dumps(result)
 
     @route('edit_fullname', methods=['POST'])
+    @login_required
     def edit_fullname(self):
         id = request.form["pk"]
         user = Users.query.get(id)
@@ -31,6 +37,7 @@ class BiographyView(FlaskView):
         return json.dumps(result)  #or, as it is an empty json, you can simply use return "{}"
 
     @route('edit_tagline', methods=['POST'])
+    @login_required
     def edit_tagline(self):
         id = request.form["pk"]
         user = Users.query.get(id)
@@ -40,6 +47,7 @@ class BiographyView(FlaskView):
         return json.dumps(result)
 
     @route('upload_avatar', methods=['POST'])
+    @login_required
     def upload_avatar(self):
         if request.method == 'POST':
             id = request.form["avatar_user_id"]

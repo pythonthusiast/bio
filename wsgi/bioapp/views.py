@@ -1,5 +1,5 @@
 from flask import render_template
-from bioapp import bioapp
+from bioapp import bio
 
 from mod_auth.forms import * #users can signin/signup from within our main page
 from mod_auth.models import * #.. therefore we need the auth models
@@ -7,8 +7,8 @@ from mod_auth.models import * #.. therefore we need the auth models
 from mod_portfolio.forms import * #where the route is /<username>, users may CRUD their portfolio
 from mod_portfolio.models import * #where the route is /<username> we must query users model
 
-@bioapp.route('/')
-@bioapp.route('/<username>')
+@bio.route('/')
+@bio.route('/<username>')
 def index(username=None):
     if username is None:
         return render_template('index.html', page_title='Biography just for you!', signin_form=SigninForm())
