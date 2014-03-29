@@ -51,7 +51,7 @@
                     
                     <ul class="dropdown-menu">
                         <li><a href="/{{session['username']}}">Your Bio Page</a></li>
-                        <li><a href="{{ url_for('BioApp.SettingsView:index') }}">Settings..</a></li>
+                        <li><a href="{{ url_for('settings.SettingsView:index') }}">Settings..</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ url_for('auth.AuthView:signout') }}">Logout</a></li>
                     </ul>

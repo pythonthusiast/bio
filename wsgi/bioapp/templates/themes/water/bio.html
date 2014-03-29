@@ -15,8 +15,8 @@
 </style>
 <div class="page-header">    
     {% if session['signed'] and session['username']== user.username %}
-        <h1><a href="#" id="fullname" data-type="text" data-url="{{ url_for('BioApp.BiographyView:edit_fullname') }}" data-pk="{{user.id}}"  data-title="Change your fullname">{{ user.fullname }}</a></h1>
-        <p><strong><a href="#" id="tagline" data-type="text" data-url="{{ url_for('BioApp.BiographyView:edit_tagline') }}" data-pk="{{user.id}}"  data-title="Change your tagline">{{ user.tagline }}</a></strong></p>
+        <h1><a href="#" id="fullname" data-type="text" data-url="{{ url_for('biography.BiographyView:edit_fullname') }}" data-pk="{{user.id}}"  data-title="Change your fullname">{{ user.fullname }}</a></h1>
+        <p><strong><a href="#" id="tagline" data-type="text" data-url="{{ url_for('biography.BiographyView:edit_tagline') }}" data-pk="{{user.id}}"  data-title="Change your tagline">{{ user.tagline }}</a></strong></p>
     {% else %}
         <h1>{{ user.fullname }}</h1>
         <p><strong>{{ user.tagline }}</strong></p>
@@ -27,7 +27,7 @@
         <div class="container" >
             {% if session['signed'] and session['username']== user.username %}
                 <a href="javascript:uploadAvatar({{user.id}});"><img id="avatar" width="300" class="img img-rounded" src="{{ user.avatar }}"></a>
-                <p><a href="#" id="biography" data-type="textarea" data-url="{{ url_for('BioApp.BiographyView:edit_biography') }}" data-pk="{{user.id}}"  data-title="Change your short biography">{{ user.bio }}</a></p>
+                <p><a href="#" id="biography" data-type="textarea" data-url="{{ url_for('biography.BiographyView:edit_biography') }}" data-pk="{{user.id}}"  data-title="Change your short biography">{{ user.bio }}</a></p>
             {% else %}
                 <img id="avatar" width="300" class="img img-rounded" src="{{ user.avatar }}">
                 <p>{{ user.bio }}</p>
@@ -225,7 +225,7 @@
 
     $("#portform_btnsave").click(function(){
         $.post(
-            "{{ url_for('BioApp.PortfolioView:add_update') }}",
+            "{{ url_for('portfolio.PortfolioView:add_update') }}",
             $("#portform").serialize(),
             function(data, textStatus) {
                 console.log(data)

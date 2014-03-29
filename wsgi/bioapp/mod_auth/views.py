@@ -7,16 +7,11 @@ from forms import *
 from models import *
 from bioapp.mod_auth import mod_auth
 from bioapp import application
-
 import md5
 
 def hash_string(string):
-    """
-    Return the md5 hash of a (string+salt)
-    """
     salted_hash = string + application.config['SECRET_KEY']
     return md5.new(salted_hash).hexdigest()
-
 
 class AuthView(FlaskView):
     @route('signin', methods=['GET', 'POST'])
